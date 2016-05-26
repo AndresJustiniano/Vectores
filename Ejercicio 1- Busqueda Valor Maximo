@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include "conio.h"
+#include <stdlib.h>
 #define MAX 100
 
 using namespace std;
@@ -33,12 +34,15 @@ void main()
 		case 1: 
 			{
 				cargar (V,n);
+				system("cls");
 				break;
 			}
 		
 		case 2:
 			{
 				mostrar (V,n);
+				getch();
+				system("cls");
 		        break;
 			}
 		
@@ -46,6 +50,8 @@ void main()
 			{
 				maxvalor=maxval (V,n);
 				cout << "El valor maximo en el vector es:  " << maxvalor << endl;
+				getch();
+				system("cls");
 				break;
 			}
 		case 0:
@@ -56,6 +62,8 @@ void main()
 		default:
 			{
 				cout << " La opcion introducida es invalida " << endl;
+				getch();
+				system("cls");
 				break;
 			}
 		}
