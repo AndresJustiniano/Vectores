@@ -1,0 +1,102 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <stdlib.h>
+#define MAX 100
+
+using namespace std;
+void cargar (int V[MAX],int n);
+void mostrar (int V[MAX],int n);
+int minval (int V[MAX], int n);
+
+void main()
+{
+	int V[MAX],n,opcion,minvalor;
+    do{
+	    cout << "=========================================================" << endl;
+	    cout << "Ingrese la Cantidad de Elementos que almacenara el vector" << endl;
+	    cin  >> n;
+	}while(n<=0||n>MAX);
+	    
+	do {
+	    cout << "=========================================================" << endl;
+	    cout << "Menu de Algoritmo que halla el maximo valor de un vector." << endl;
+	    cout << "1.- Cargar el vector" << endl;
+	    cout << "2.- Mostrar el vector " << endl;
+	    cout << "3.- Hallar el Minimo Valor del Vector " << endl;
+	    cout << "0.- Salir" << endl;
+	    cout << "=========================================================" << endl;
+		cout << "Ingrese la opcion: ";
+		cin  >> opcion;
+		switch (opcion)
+		{
+		case 1: 
+			{
+				cargar (V,n);
+				system("cls");
+				break;
+			}
+		
+		case 2:
+			{
+				mostrar (V,n);
+				getch();
+				system("cls");
+		        break;
+			}
+		
+		case 3:
+			{
+				minvalor=minval (V,n);
+				cout << "El valor maximo en el vector es:  " << minvalor << endl;
+				getch();
+				system("cls");
+				break;
+			}
+		case 0:
+			{
+				cout << " Salir " << endl;
+				break;
+			}
+		default:
+			{
+				cout << " La opcion introducida es invalida " << endl;
+				getch();
+				system("cls");
+				break;
+			}
+		}
+	}while (opcion!=0);
+	getch();
+}
+
+void cargar (int V[MAX], int n)
+{
+	int i;
+	for (i=0;i<n;i++)
+	{
+		cout << " V[" << i << "]=  ";
+		cin >> V[i];
+	}
+}
+
+void mostrar (int V[MAX], int n)
+{
+	int i;
+	for (i=0;i<n;i++)
+	{
+		cout << " V[" << i << "]=  " << V[i] << endl;
+	}
+}
+
+int minval (int V[MAX], int n)
+{
+	int i,min;
+	min=V[0];
+	for (i=1; i<n; i++)
+	{
+		if (V[i]<min)
+			min=V[i];
+	}
+	return (min);
+}
