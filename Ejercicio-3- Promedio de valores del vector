@@ -1,0 +1,108 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <stdlib.h>
+#define MAX 100
+
+using namespace std;
+
+void cargar (int V[MAX], int n);
+void mostrar (int V[MAX], int n);
+float promedio (int V[MAX], int n);
+
+void main()
+{
+	int V[MAX], n, opcion;
+	float prom;
+	do {
+		cout << "=============================================================" << endl;
+		cout << "Ingrese la cantidad de elementos que quiere almacenar:  ";
+		cin  >> n;
+	}while(n<=0||n>MAX);
+
+	do {
+		cout << "=============================================================" << endl;
+		cout << "Menu calculo promedio vectores " << endl;
+		cout << "1.- Cargar el Vector. " << endl;
+		cout << "2.- Mostrar el Vector. " << endl;
+		cout << "3.- Promedio hallado de los valores del vector. " << endl;
+		cout << "0.- Salir. " << endl;
+		cout << "=============================================================" << endl;
+		cout << "Digite un numero para elegir una opcion " << endl;
+		cin  >> opcion;
+		switch (opcion)
+		{
+		case 1: 
+			{
+				cout << "1.- Cargar el vector. " << endl;
+				cout << "Ingrese los valores que tendra el vector" << endl;
+				cargar (V,n);
+				system ("cls");
+				break;
+			}
+		case 2:
+			{
+				cout << "2.- Mostrar el Vector. " << endl;
+				cout << "Valores Ingresados: " << endl;
+				mostrar (V,n);
+				getch();
+				system("cls");
+				break;
+			}
+		case 3:
+			{
+				cout << "3.- Promedio de datos en el Vector. " << endl;
+				prom= promedio (V,n);
+				cout << " El promedio es: " << prom << endl;
+				getch();
+				system ("cls");
+				break;
+			}
+		case 0:
+			{
+				cout << "0.- Salir. " << endl;
+				getch();
+				break;
+			}
+		default:
+			{
+				cout <<" La Opcion Ingresada es invalida. " << endl;
+				getch();
+				system ("cls");
+				break;
+			}
+		}
+	}while(opcion!=0);
+	getch();
+}
+
+void cargar (int V[MAX], int n)
+{
+	int i;
+	for (i=0;i<n;i++)
+	{
+		cout << "V[" << i << "]= ";
+		cin  >> V[i];
+	}
+}
+
+void mostrar (int V[MAX], int n)
+{
+	int i;
+	for (i=0;i<n;i++)
+	{
+		cout << "V[" << i << "]= " << V[i] << endl;
+	}
+}
+
+float promedio (int V[MAX], int n)
+{
+	int i,s=0;
+	float pro;
+	for (i=0;i<n;i++)
+	{
+		s=s+V[i];
+	}
+	pro=s/n;
+	return pro;
+}
